@@ -1,9 +1,11 @@
 import {CardNumberValidator} from "./utils/cardNumberValidator";
-import {normalizeCardNumber} from "./utils/normalizeCardNumber";
+import {isCardValidByLuhnsAlgorithm} from "./utils/isCardValidByLuhnsAlgorithm";
 
-const checkCardNumber = (cardNumber) => {
+const cardNumberCheck = (cardNumber) => {
     const cardNumberValidation = new CardNumberValidator(cardNumber);
     cardNumberValidation.validate();
 
-    const normalized = normalizeCardNumber(cardNumber);
+    const isAlgorithmFulfilled = isCardValidByLuhnsAlgorithm(cardNumber);
+
+    return isAlgorithmFulfilled && [isAlgorithmFulfilled, "Some provider"];
 };
