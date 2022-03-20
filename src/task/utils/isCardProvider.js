@@ -4,11 +4,11 @@ export const isCardProvider = (cardNumberString, cardNumberProviderFeatures) => 
     }
     const {cardNumberLengths, cardNumberPrefixes} = cardNumberProviderFeatures;
     const isLength = cardNumberLengths.includes(cardNumberString.length);
-    const cardNumberPrefixesAsStrings = cardNumberPrefixes.map(prefix => prefix.toString());
-    const prefixLength = cardNumberPrefixesAsStrings.find(prefix => {
-        const regex = new RegExp(`^(${prefix})`, 'g');
+    const cardNumberPrefixesAsStrings = cardNumberPrefixes.map(String);
+    const prefix = cardNumberPrefixesAsStrings.find(p => {
+        const regex = new RegExp(`^(${p})`);
         return cardNumberString.match(regex);
-    }).length;
-    const isPrefix = cardNumberPrefixesAsStrings.includes(cardNumberString.substring(0, prefixLength));
+    });
+    const isPrefix = Boolean(prefix) && cardNumberPrefixesAsStrings.includes(cardNumberString.substring(0, prefix.length));
     return isLength && isPrefix;
 }

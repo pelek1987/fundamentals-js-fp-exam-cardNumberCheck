@@ -1,7 +1,7 @@
 export const cardNumbersFeatures = {
     Mastercard: {
         cardNumberLengths: [16],
-        cardNumberPrefixes: [51, 52, 53, 54, 55],
+        cardNumberPrefixes: [22, 51, 52, 53, 54, 55],
     },
     Visa: {
         cardNumberLengths: [13, 16],

@@ -19,7 +19,7 @@ export class CardNumberValidator {
 
     throwsWhenIsNotNumberOrNumberAsString(cardNumber) {
         const number = Number(cardNumber);
-        const isTrueNumber = typeof number === "number" && Number.isNaN(number);
+        const isTrueNumber = typeof number === "number" && !Number.isNaN(number);
         if (!isTrueNumber) {
             throw new Error('Card number has to be a number');
         }
