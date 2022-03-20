@@ -1,18 +1,22 @@
-export const cardNumbersFetaures = {
+export const cardNumbersFeatures = {
     Mastercard: {
         cardNumberLengths: [16],
         cardNumberPrefixes: [51, 52, 53, 54, 55],
+        prefixLengths: [2]
     },
     Visa: {
         cardNumberLengths: [13, 16],
         cardNumberPrefixes: [4],
+        prefixLengths: [1]
     },
     AmericanExpress: {
         cardNumberLengths: [15],
         cardNumberPrefixes: [34, 37],
+        prefixLengths: [2]
     },
     Discover: {
         cardNumberLengths: [16, 17, 18, 19],
-        cardNumberPrefixes: [6011, 644, 645, 646, 647, 648, 649, 65]
+        cardNumberPrefixes: [6011, 644, 645, 646, 647, 648, 649, 65],
+        prefixLengths: [2, 3, 4]
     }
 };
