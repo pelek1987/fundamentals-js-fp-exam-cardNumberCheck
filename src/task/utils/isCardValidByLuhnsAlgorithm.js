@@ -5,7 +5,7 @@ export const isCardValidByLuhnsAlgorithm = (cardNumber) => {
     const firstSet = normalized.filter((_, index) => index % 2 === 0);
     const secondSet = normalized.filter((_, index) => index % 2 === 1);
     const firstSum = firstSet
-        .map((n) => (n * 2).toString())
+        .map((n) => String(n * 2))
         .reduce((total, curr) => {
             const firstDigit = Number(curr[0]);
             const secondDigit = curr[1] ? Number(curr[1]) : 0;
