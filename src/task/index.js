@@ -3,9 +3,9 @@ import {isCardValidByLuhnsAlgorithm} from "./utils/isCardValidByLuhnsAlgorithm";
 import {getCardProvider} from "./utils/getCardProvider";
 
 export const cardNumberCheck = (cardNumber) => {
-    (new CardNumberValidator(cardNumber)).validateAndNormalize();
+    const validAndNormalizedCardNumber  = new CardNumberValidator(cardNumber).validateAndNormalize();
 
-    const isAlgorithmFulfilled = isCardValidByLuhnsAlgorithm(cardNumber);
+    const isAlgorithmFulfilled = isCardValidByLuhnsAlgorithm(validAndNormalizedCardNumber);
 
-    return isAlgorithmFulfilled && [isAlgorithmFulfilled, getCardProvider(cardNumber)];
+    return isAlgorithmFulfilled && [isAlgorithmFulfilled, getCardProvider(validAndNormalizedCardNumber)];
 };
